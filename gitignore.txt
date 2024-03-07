@@ -1,0 +1,11 @@
+# Ignoriere das Verzeichnis "pdf" und dessen Inhalt
+pdf/
+
+# Ignoriere das Verzeichnis "temp" und dessen Inhalt
+temp/
+
+# Ignoriere alle Dateien mit der Erweiterung ".log"
+*.log
+
+# Ignoriere eine bestimmte Datei namens "example.txt"
+rechnung.pdf
