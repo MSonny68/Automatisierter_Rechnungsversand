@@ -9,6 +9,7 @@ const pdfRenameService = {
     async renamePDF(){
         const splitPDFs = [];
         const extendsTXT = [];
+        const renamedPDFs = [];
         const directoryPath = './temp';
         const endungPDF = '.pdf';
         const endungTXT = '.txt';
@@ -29,11 +30,14 @@ const pdfRenameService = {
           //  console.log("Firmenname : " +lineContent);
 
         pdfFiles = await getRenamedPDFs(directoryPath);
+        
         for (const pdfFile of pdfFiles) {
+            renamedPDFs.push(pdfFile);
             await copyPDF(directoryPath, pdfFile, './pdf');
         }
 
         console.log("PDFs erfolgreich umbenannt und kopiert");
+        return renamedPDFs;
     }
 }
     async function getFiles(directoryPath,endung) {
@@ -147,6 +151,7 @@ const pdfRenameService = {
     async function copyPDF(sourceDir, pdfFile, destinationDir) {
         try {
             await fs.copyFile(`${sourceDir}/${pdfFile}`, `${destinationDir}/${pdfFile}`);
+            
         } catch (error) {
             console.error('Error copying PDF to destination:', error);
         }

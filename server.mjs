@@ -8,13 +8,16 @@ import { promises as fs } from 'fs';
 import pdfRoutes from './app/routes/pdfRoutes.js';
 
 import * as pdfjs from 'pdfjs-dist/build/pdf.mjs';
+import cors from 'cors';
+
 const app = express();
 const PORT = process.env.PORT || 8080;
-
+app.use(cors());
 // Middleware für JSON-Anfragenverarbeitung
 app.use(express.json());
 app.use(fileUpload());
 app.use(pdfRoutes);
+
 
 
 // Endpoint für das PDF-Splitting

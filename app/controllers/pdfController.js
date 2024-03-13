@@ -27,6 +27,7 @@ const pdfController = {
 
              // Verzeichnis für temporäre Dateien
              const tempDir = './temp/';
+             await fs.mkdir(tempDir, { recursive: true });
 
              // Vor dem Schreiben sicherstellen, dass das Verzeichnis leer ist
              await clearDirectory(tempDir);
@@ -150,9 +151,9 @@ const pdfController = {
             
             console.log("PDFs erfolgreich gemerged");
             //console.log("splitPDFs"+splitPDFs);
-
-            res.status(200).json({ splitPDFs, mergedPDFs });
-            await pdfRenameService.renamePDF();
+            const renamedPDF = await pdfRenameService.renamePDF();
+            res.status(200).json({ renamedPDF });
+            //await pdfRenameService.renamePDF();
         } catch (error) {
             console.error('Error splitting and merging PDF:', error);
             res.status(500).json({ error: error.message });
