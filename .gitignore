@@ -9,3 +9,4 @@ temp/
 
 # Ignoriere eine bestimmte Datei namens "example.txt"
 rechnung.pdf
+node_modules/
