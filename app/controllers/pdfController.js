@@ -27,10 +27,13 @@ const pdfController = {
 
              // Verzeichnis für temporäre Dateien
              const tempDir = './temp/';
+             const pdfDir = './pdf/';
              await fs.mkdir(tempDir, { recursive: true });
+             await fs.mkdir(pdfDir, { recursive: true });
 
              // Vor dem Schreiben sicherstellen, dass das Verzeichnis leer ist
              await clearDirectory(tempDir);
+             await clearDirectory(pdfDir);
 
             const splitPDFs = [];
             const extractedTexts = [];
