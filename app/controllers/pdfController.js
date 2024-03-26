@@ -1,8 +1,7 @@
 import { PDFDocument } from 'pdf-lib';
 import { promises as fs } from 'fs';
 import extractTextFromPDF from '../service/pdfExtractText.js';
-import renamePDF from '../service/pdfRenameService.js';
-import { isArrayBufferView } from 'util/types';
+
 import pdfRenameService from '../service/pdfRenameService.js';
 
 const pdfController = {

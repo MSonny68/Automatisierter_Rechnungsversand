@@ -2,8 +2,10 @@
 
 import express from 'express';
 import pdfController from '../controllers/pdfController.js';
+import excelController from '../controllers/excelController.js'
 import path from 'path';
 import { fileURLToPath } from 'url';
+import XLSX from 'xlsx';
 import { sendEmail } from '../controllers/emailController.js';
 const __filename = fileURLToPath(import.meta.url);
 // Verzeichnispfad zur aktuellen Datei
@@ -13,6 +15,7 @@ const router = express.Router();
 
 
 router.post('/split', pdfController.splitPdf);
+router.post('/excel',excelController.saveExcel);
 
 // routes
 router.get('/', (req, res)=> {
@@ -37,6 +40,9 @@ router.get('/download/:filename', (req, res) => {
         }
     });
 });
+
+router.get('/excel/:filename', excelController.getExcel);
+
 
 
 

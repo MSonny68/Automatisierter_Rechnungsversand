@@ -3,6 +3,7 @@ pdf/
 
 # Ignoriere das Verzeichnis "temp" und dessen Inhalt
 temp/
+excel/
 
 # Ignoriere alle Dateien mit der Erweiterung ".log"
 *.log
